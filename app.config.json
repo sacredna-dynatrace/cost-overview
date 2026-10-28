@@ -1,14 +1,40 @@
 {
   "$schema": "./.dt-app/app.config.schema.json",
-  "environmentUrl": "https://qxe73637.apps.dynatrace.com/",
+  "environmentUrl": "https://<your-environment-id>.apps.dynatrace.com/",
   "app": {
     "name": "cost_overview",
-    "version": "0.0.0",
-    "description": "A starting project with routing, fetching data, and charting",
+    "version": "0.0.16",
+    "description": "Estimated Dynatrace cost per cost center and capability",
     "id": "my.cost.overview",
     "scopes": [
-      { "name": "storage:logs:read", "comment": "default template" },
-      { "name": "storage:buckets:read", "comment": "default template" }
+      {
+        "name": "storage:events:read",
+        "comment": "Read billing usage events"
+      },
+      {
+        "name": "storage:system:read",
+        "comment": "Read dt.system.events"
+      },
+      {
+        "name": "storage:buckets:read",
+        "comment": "Read Grail buckets"
+      },
+      {
+        "name": "storage:entities:read",
+        "comment": "Resolve host names"
+      },
+      {
+        "name": "storage:metrics:read",
+        "comment": "Read included trace volume billing metrics"
+      },
+      {
+        "name": "app-settings:objects:read",
+        "comment": "Read rate card and account connection settings"
+      },
+      {
+        "name": "app-settings:objects:write",
+        "comment": "Save rate card (admins)"
+      }
     ]
   }
 }

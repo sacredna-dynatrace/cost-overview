@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.dynatrace.com/docs-assets/schema_strict_apps.json",
+  "dynatrace": "1",
+  "schemaId": "rate-card",
+  "version": "0.0.1",
+  "displayName": "Rate card",
+  "description": "Price overrides (USD) for estimated costs. Capabilities without an override use the DPS list price.",
+  "multiObject": false,
+  "maxObjects": 1,
+  "types": {
+    "PriceOverride": {
+      "type": "object",
+      "version": "0",
+      "displayName": "Price override",
+      "summaryPattern": "{capability}",
+      "properties": {
+        "capability": {
+          "displayName": "Capability",
+          "description": "Capability name as in event.type of billing usage events",
+          "type": "text",
+          "nullable": false,
+          "default": ""
+        },
+        "price": {
+          "displayName": "Price (USD)",
+          "type": "float",
+          "nullable": false,
+          "default": 0
+        },
+        "priceUnit": {
+          "displayName": "Per units",
+          "description": "Number of units the price applies to",
+          "type": "integer",
+          "nullable": false,
+          "default": 1
+        }
+      }
+    }
+  },
+  "properties": {
+    "prices": {
+      "displayName": "Prices",
+      "type": "list",
+      "items": { "type": { "$ref": "#/types/PriceOverride" } },
+      "nullable": false,
+      "minObjects": 0,
+      "maxObjects": 100
+    }
+  }
+}
