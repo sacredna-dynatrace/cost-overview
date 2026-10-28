@@ -3,7 +3,7 @@
   "environmentUrl": "https://<your-environment-id>.apps.dynatrace.com/",
   "app": {
     "name": "cost_overview",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "description": "Estimated Dynatrace cost per cost center and capability",
     "id": "my.cost.overview",
     "scopes": [
